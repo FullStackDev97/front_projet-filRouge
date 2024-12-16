@@ -1,0 +1,204 @@
+ion-card {
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  text-align: center;
+  border-radius: 10px;
+  margin-left: 0;
+  width: 100%;
+}
+
+ion-card-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  height: 143px;
+}
+
+.ion-col-nearby{
+  padding: 5px;
+}
+.icon-large {
+  font-size: large;
+  margin-left: 3px;
+}
+
+.pharmacy {
+  color: green !important;
+}
+
+.hospital {
+  color: fuchsia !important;
+}
+
+.metro_station {
+  color: blue !important;
+}
+
+.cart {
+  color: red !important;
+}
+
+.icon-grey {
+  color: grey;
+  font-size: xx-small;
+  margin-right: 0;
+}
+
+.address {
+  color: grey;
+  margin: 0;
+}
+
+.map-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.details {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.nearby {
+  margin-top: 15px;
+}
+
+h3{
+  margin-bottom: 0;
+}
+
+.lieu-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 65%;
+  margin-left: 2px;
+  justify-content: flex-start;
+}
+
+.overview {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.overview p {
+  margin: 5px 0;
+  font-weight: bold;
+  font-size: medium;
+}
+
+.btn-test{
+  margin-top: 20px;
+  background-color : #4C894A !important;
+}
+
+.map-button{
+ // margin-top: 15px;
+  margin-left: 8.55rem;
+  margin-bottom: 15px;
+  color: black;
+  font-size: medium;
+
+  .map-icon{
+    color: orange;
+  }
+}
+
+.mySwiper {
+  width: 100%;
+  height: 300px;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+img{
+  border-radius: 20px !important;
+}
+
+.span-details{
+  font-size: small;
+  margin-left: 0;
+  font-weight: bold;
+}
+
+.prix{
+  color: #284E33;
+  font-size: xx-large;
+  margin:0;
+}
+
+ion-button{
+  border-radius: 15px;
+}
+
+.btn-test {
+  --background: #4C894A !important;
+  --background-activated: #388e3c !important;
+  --background-focused: #66bb6a !important;
+  --background-hover: #43a047 !important;
+  --color: #fff !important;
+  --border-radius: 15px !important;
+  font-size: large;
+}
+
+.span-apercu{
+  color:gray;
+}
+
+.overview>div{
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  font-weight: bold;
+  .span-response{
+    width: 50%;
+    text-align: justify;
+  }
+}
+
+.image-container {
+  position: relative;
+}
+
+.icon-buttons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 10px;
+  z-index: 1;
+}
+
+.heart-icon {
+  font-size: 24px;
+  color: red;
+  //border: 2px solid red;
+  //border-radius: 50%;
+}
+
+.heart-icon.filled {
+  color: red;
+  background-color: red;
+}
+
+.share-icon {
+  //color: gray;
+  font-size: 24px;
+}

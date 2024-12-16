@@ -1,0 +1,78 @@
+.eligibility-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+
+.eligibility-icon {
+  font-size: 100px;
+  margin-bottom: 20px;
+}
+
+.eligibility-button {
+  --background: transparent;
+  --background-focused: transparent;
+  --background-hover: transparent;
+  --background-activated: transparent;
+  --box-shadow: none;
+  border-radius: 50%;
+  width: 150px;
+  height: 200px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Allow positioning of the circle */
+  padding: 0; /* Ensure padding does not affect layout */
+  bottom: -40px;
+
+  ion-icon {
+    font-size: 2.5rem; /* Increase icon size */
+    color: #4CAF50; /* Green color */
+  }
+
+  p {
+    margin: 0;
+    color: #868686; /* Gray color */
+    font-size: 1rem; /* Adjust text size */
+    text-align: center;
+    position: absolute;
+    bottom: 0; /* Position text below the circle */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%; /* Ensure the text is centered */
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border: 2px solid #DDDDDD; /* Border color */
+    border-radius: 50%;
+    //top: 10px;
+    z-index: -1;
+  }
+
+  &.red {
+    ion-icon {
+      color: red;
+    }
+    p {
+      color: red;
+    }
+    &::before {
+      border-color: red;
+    }
+  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-evenly;
+ // margin-top: 20px;
+}

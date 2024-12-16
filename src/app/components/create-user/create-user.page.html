@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Créer un utilisateur</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="createUserForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Nom</ion-label>
+      <ion-input id="nom" formControlName="nom"></ion-input>
+    </ion-item>
+    <div *ngIf="createUserForm.get('nom')?.invalid && (createUserForm.get('nom')?.dirty || createUserForm.get('nom')?.touched)">
+      <ion-text color="danger">Le nom est requis.</ion-text>
+    </div>
+
+    <ion-item>
+      <ion-label position="floating">Prénom</ion-label>
+      <ion-input id="prenom" formControlName="prenom"></ion-input>
+    </ion-item>
+    <div *ngIf="createUserForm.get('prenom')?.invalid && (createUserForm.get('prenom')?.dirty || createUserForm.get('prenom')?.touched)">
+      <ion-text color="danger">Le prénom est requis.</ion-text>
+    </div>
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input id="email" formControlName="email" type="email"></ion-input>
+    </ion-item>
+    <div *ngIf="createUserForm.get('email')?.invalid && (createUserForm.get('email')?.dirty || createUserForm.get('email')?.touched)">
+      <ion-text color="danger">Email invalide.</ion-text>
+    </div>
+
+    <ion-item>
+      <ion-label position="floating">Mot de passe</ion-label>
+      <ion-input id="motDePasse" formControlName="motDePasse" type="password"></ion-input>
+    </ion-item>
+    <div *ngIf="createUserForm.get('motDePasse')?.invalid && (createUserForm.get('motDePasse')?.dirty || createUserForm.get('motDePasse')?.touched)">
+      <ion-text color="danger">Le mot de passe doit comporter au moins 6 caractères.</ion-text>
+    </div>
+
+    <ion-item>
+      <ion-label position="floating">Numéro de téléphone</ion-label>
+      <ion-input id="numeroTelephone" formControlName="numeroTelephone" type="tel"></ion-input>
+    </ion-item>
+    <div *ngIf="createUserForm.get('numeroTelephone')?.invalid && (createUserForm.get('numeroTelephone')?.dirty || createUserForm.get('numeroTelephone')?.touched)">
+      <ion-text color="danger">{{ phoneErrorMessage }}</ion-text>
+    </div>
+
+    <ion-item>
+      <ion-label position="floating">Adresse</ion-label>
+      <ion-input id="adresse" formControlName="adresse" (ionInput)="onAddressInput($event)"></ion-input>
+    </ion-item>
+    <ion-list *ngIf="suggestions.length > 0">
+      <ion-item *ngFor="let suggestion of suggestions" (click)="selectSuggestion(suggestion)">
+        {{ suggestion.display_name }}
+      </ion-item>
+    </ion-list>
+    <div *ngIf="createUserForm.get('adresse')?.invalid && (createUserForm.get('adresse')?.dirty || createUserForm.get('adresse')?.touched)">
+      <ion-text color="danger">L'adresse est requise.</ion-text>
+    </div>
+
+    <ion-button expand="block" type="submit" [disabled]="createUserForm.invalid">Créer</ion-button>
+  </form>
+  <div class="login-link">
+    <p>Déjà un compte? <a [routerLink]="['/login']">Connectez-vous ici</a></p>
+  </div>
+</ion-content>

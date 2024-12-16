@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="profile-container">
+    <img src="assets/rihab.png" alt="Avatar" class="avatar" />
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="profile-form">
+      <ion-item>
+        <ion-label position="stacked">Nom</ion-label>
+        <ion-input formControlName="nom" fill="solid"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Prénom</ion-label>
+        <ion-input formControlName="prenom" fill="solid"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Adresse Mail</ion-label>
+        <ion-input formControlName="email" type="email" fill="solid"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Numéro de téléphone</ion-label>
+        <ion-input formControlName="numeroTelephone" type="tel" fill="solid"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Adresse</ion-label>
+        <ion-input formControlName="adresse" fill="solid"></ion-input>
+      </ion-item>
+
+      <ion-item class="panel" button (click)="toggleSimulationPanel()">
+        <ion-label>Simulation</ion-label>
+        <ion-icon [name]="simulationPanelOpen ? 'chevron-up' : 'chevron-down'" slot="end"></ion-icon>
+      </ion-item>
+
+      <div *ngIf="simulationPanelOpen" class="simulation-panel">
+        <ion-item>
+          <ion-label position="stacked">Durée</ion-label>
+          <ion-input formControlName="duree" type="number" placeholder="Entrez une durée en année" fill="solid"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Apport</ion-label>
+          <ion-input formControlName="apport" type="number" placeholder="30 000" fill="solid"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Mensualité</ion-label>
+          <ion-input formControlName="mensualite" type="number" placeholder="300" fill="solid"></ion-input>
+        </ion-item>
+
+        <ion-button (click)="selectFile()">Choisir un fichier</ion-button>
+        <input type="file" #fileInput style="display: none" (change)="onFileSelected($event)">
+        <div *ngFor="let file of files, let index">
+          <h4>File {{index }} : {{file}} <span style="color: red" (click)="delete(file)">Delete</span> </h4>
+        </div>
+      </div>
+
+      <ion-button expand="block" type="submit" [disabled]="!profileForm.valid">Enregistrer</ion-button>
+    </form>
+    <ion-button expand="block"  (click)="logout()" class="logout-button">Logout</ion-button>
+    <ion-button expand="block"  (click)="goToHistorique()" class="historique-button">Voir Historique</ion-button>
+  </div>
+</ion-content>

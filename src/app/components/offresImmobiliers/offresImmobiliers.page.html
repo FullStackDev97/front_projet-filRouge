@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Recommandations</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="content-container">
+    <div class="logo-container">
+      <img src="assets/logo.png" alt="Credit & Offrehabitats Logo" class="main-logo">
+    </div>
+
+    <ion-searchbar placeholder="Recherche" (ionFocus)="openSearch()"></ion-searchbar>
+
+    <h2>Recommandations</h2>
+    <swiper-container slides-per-view="1.5" space-between="10" pagination class="recommandations">
+      <swiper-slide *ngFor="let offre of offres" class="card-container">
+        <ion-card (click)="viewDetails(offre?.id)">
+          <div class="image-container">
+            <img [src]="offre.imageUrls ? offre.imageUrls[0] : 'assets/placeholder-image.png'" alt="Offre Image">
+            <ion-card-header class="typeBien">
+              <ion-card-title>{{ formatTypeBien(offre?.typeBien) }}</ion-card-title>
+            </ion-card-header>
+          </div>
+          <ion-card-content>
+            <div class="location">
+              <ion-icon name="location-outline"></ion-icon>
+              <span>{{ formatAddress(offre?.adresse) }}</span>
+            </div>
+            <div class="price-favori">
+              <span>{{ offre?.prix }}€</span>
+              <ion-icon [name]="offre.isFavori ? 'heart' : 'heart-outline'"></ion-icon>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </swiper-slide>
+      <div class="swiper-pagination"></div>
+    </swiper-container>
+
+    <h2>Localisation</h2>
+    <h3>Près de chez vous</h3>
+    <swiper-container slides-per-view="1.5" space-between="10" pagination class="localisation">
+      <swiper-slide *ngFor="let offre of offresPresDeChezVous" class="card-container">
+        <ion-card (click)="viewDetails(offre?.id)">
+          <img [src]="offre.imageUrls ? offre.imageUrls[0] : 'assets/placeholder-image.png'" alt="Offre Image">
+          <ion-card-header class="typeBien">
+            <ion-card-title>{{ formatTypeBien(offre?.typeBien) }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <div class="location">
+              <ion-icon name="location-outline"></ion-icon>
+              <span>{{ formatAddress(offre?.adresse) }}</span>
+            </div>
+            <div class="price-favori">
+              <span>{{ offre?.prix }}€</span>
+              <ion-icon [name]="offre.isFavori ? 'heart' : 'heart-outline'"></ion-icon>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </swiper-slide>
+      <div class="swiper-pagination"></div>
+    </swiper-container>
+  </div>
+</ion-content>

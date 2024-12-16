@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Favoris</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let offre of favoris" (click)="viewDetails(offre?.id)" class="favori-item">
+      <ion-card class="favori-card">
+        <div class="image-container">
+          <img [src]="getImageUrl(offre)" alt="Offre Image">
+        </div>
+        <ion-card-content>
+          <ion-badge color="success" class="badge-type">{{ formatTypeBien(offre?.typeBien) }}</ion-badge>
+          <h2>{{ offre?.prix }} €</h2>
+          <p class="adresse">{{ formatAddress(offre?.adresse) }}</p>
+          <p>
+            {{ getChambresText(offre?.chambres) }} ·
+            {{ getSallesDeBainText(offre?.sallesDeBain) }}
+          </p>
+          <ion-icon name="heart" color="danger" class="favori-icon"></ion-icon>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>

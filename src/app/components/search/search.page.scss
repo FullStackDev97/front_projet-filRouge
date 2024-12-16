@@ -1,0 +1,58 @@
+.filters-form {
+  padding: 16px;
+  background: linear-gradient(to bottom, #8a8a8a, #e0e0e0);
+  border-radius: 20px;
+  margin: 8px;
+}
+
+.filter-section {
+  margin-bottom: 16px;
+}
+
+.filter-header {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.filter-buttons ion-button .filter-buttons {
+  margin: 4px 4px 0 0;
+  --border-radius: 8px;
+  background-color: white;
+}
+
+.budget-inputs {
+  display: flex;
+  align-items: center;
+}
+
+.budget-inputs ion-label {
+  margin: 0 8px;
+}
+
+ion-range {
+  --bar-background-active: #3880ff;
+  --bar-background: #ccc;
+  --knob-background: #3880ff;
+}
+
+ion-item {
+  --background: #fff;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+ion-label {
+  font-weight: bold;
+  color: #333;
+}
+
+ion-input,
+ion-select {
+  --padding-start: 16px;
+}
+
+.apply-button {
+  margin-top: 20px;
+  --border-radius: 16px;
+}

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Historique des simulations</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let historique of historiqueSimulations" (click)="viewDetails(historique.offreImmobilier?.id)" class="historique-item">
+      <ion-card class="historique-card">
+        <div class="image-container">
+          <img [src]="getImageUrl(historique.offreImmobilier)" alt="Offre Image">
+        </div>
+        <ion-card-content>
+          <ion-badge color="success" class="badge-type">{{ formatTypeBien(historique.offreImmobilier?.typeBien) }}</ion-badge>
+          <h2>{{ historique.offreImmobilier?.prix }} €</h2>
+          <p class="adresse">{{ formatAddress(historique.offreImmobilier?.adresse) }}</p>
+          <p>
+            {{ getChambresText(historique.offreImmobilier?.chambres) }} ·
+            {{ getSallesDeBainText(historique.offreImmobilier?.sallesDeBain) }}
+          </p>
+          <ion-icon name="heart" color="danger" class="historique-icon"></ion-icon>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>

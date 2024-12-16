@@ -1,0 +1,32 @@
+/* src/app/welcome-page/welcome-page.component.scss */
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+}
+
+.welcome-title {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.main-logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.bnp-logo {
+  width: 100px;
+  height: auto;
+  margin-bottom: 40px;
+}
+
+.refresh-icon {
+  font-size: 3em;
+  color: #4CAF50;
+}

@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Détails de la Nouveauté</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="information" class="information-details">
+    <h2>{{ information.titre }}</h2>
+    <img [src]="information.imageUrl || 'assets/placeholder-image.png'" alt="Information Image" class="information-image">
+    <p>{{ information.contenu }}</p>
+    <p><strong>Auteur:</strong> {{ information.auteur }}</p>
+    <p><strong>Date de publication:</strong> {{ information.dateDePublication }}</p>
+  </div>
+</ion-content>

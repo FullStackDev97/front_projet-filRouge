@@ -1,0 +1,43 @@
+.profile-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.progress-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 20px; /* Add margin between ion-items */
+}
+
+.progress-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.progress-note {
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-align: end;
+}
+
+.cancel-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto 0; /* Centrer le bouton horizontalement et ajouter une marge en haut */
+  width: 80%; /* Largeur du bouton */
+  text-align: center;
+}
+
+ion-item.no-line {
+  --inner-border-width: 0;
+}
+

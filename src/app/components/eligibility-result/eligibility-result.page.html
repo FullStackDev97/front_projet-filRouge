@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Éligibilité</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="eligibility-container">
+    <ion-icon [name]="eligibilityIcon" class="eligibility-icon" [style.color]="eligibilityColor"></ion-icon>
+    <h2>{{ eligibilityMessage }}</h2>
+
+    <div *ngIf="isEligible" class="button-container">
+      <ion-button (click)="enregistrer()" class="eligibility-button">
+        <ion-icon name="save-outline"></ion-icon>
+        <p>Enregistrer</p>
+      </ion-button>
+      <ion-button (click)="envoyerDemande()" class="eligibility-button">
+        <ion-icon name="send-outline"></ion-icon>
+        <p>Envoyer ma demande</p>
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Filtres</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">Annuler</ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="resetFilters()">Réinitialiser</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="searchForm" (ngSubmit)="applyFilters()" class="filters-form">
+    <ion-item class="filter-item">
+      <ion-label>Adresse</ion-label>
+      <ion-input formControlName="adresse"></ion-input>
+    </ion-item>
+
+    <div class="filter-section">
+      <div class="filter-header">Type de propriété</div>
+      <div class="filter-buttons">
+        <ion-button fill="solid" (click)="toggleAllSelection('typeBien')" [color]="allSelected.typeBien ? 'success' : 'light'">Tous</ion-button>
+        <ion-button fill="solid" *ngFor="let type of propertyTypes" (click)="toggleSelection('typeBien', type)" [color]="isSelected('typeBien', type) ? 'success' : 'light'">{{ formatTypeBien(type) }}</ion-button>
+      </div>
+    </div>
+
+    <div class="filter-section">
+      <div class="filter-header">Budget</div>
+      <div class="budget-inputs">
+        <ion-item class="filter-item">
+          <ion-input type="number" formControlName="budgetMin" placeholder="Prix min €"></ion-input>
+        </ion-item>
+        <ion-label>à</ion-label>
+        <ion-item class="filter-item">
+          <ion-input type="number" formControlName="budgetMax" placeholder="Prix max €"></ion-input>
+        </ion-item>
+      </div>
+    </div>
+
+    <div class="filter-section">
+      <div class="filter-header">Chambres</div>
+      <div class="filter-buttons">
+        <ion-button fill="solid" (click)="toggleAllSelection('chambres')" [color]="allSelected.chambres ? 'success' : 'light'">Tous</ion-button>
+        <ion-button fill="solid" *ngFor="let chambre of chambresTypes" (click)="toggleSelection('chambres', chambre)" [color]="isSelected('chambres', chambre) ? 'success' : 'light'">{{ chambre }}</ion-button>
+      </div>
+    </div>
+
+    <div class="filter-section">
+      <div class="filter-header">Salles de bain</div>
+      <div class="filter-buttons">
+        <ion-button fill="solid" (click)="toggleAllSelection('sallesDeBain')" [color]="allSelected.sallesDeBain ? 'success' : 'light'">Tous</ion-button>
+        <ion-button fill="solid" *ngFor="let salle of sallesDeBainTypes" (click)="toggleSelection('sallesDeBain', salle)" [color]="isSelected('sallesDeBain', salle) ? 'success' : 'light'">{{ salle }}</ion-button>
+      </div>
+    </div>
+
+    <div class="filter-section">
+      <div class="filter-header">Age de la propriété</div>
+      <div class="filter-buttons">
+        <ion-button fill="solid" (click)="toggleAllSelection('agePropriete')" [color]="allSelected.agePropriete ? 'success' : 'light'">Tous</ion-button>
+        <ion-button fill="solid" *ngFor="let age of ageProprieteTypes" (click)="toggleSelection('agePropriete', age)" [color]="isSelected('agePropriete', age) ? 'success' : 'light'">{{ formatAgePropriete(age) }}</ion-button>
+      </div>
+    </div>
+
+    <ion-button expand="block" type="submit" class="apply-button" color="success">Appliquer</ion-button>
+  </form>
+
+  <ion-list>
+    <ion-item *ngFor="let offre of offres" (click)="viewDetails(offre.id)">
+      <ion-thumbnail slot="start">
+        <img [src]="offre.imageUrls ? offre.imageUrls[0] : 'assets/placeholder-image.png'">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ formatTypeBien(offre.typeBien) }}</h2>
+        <p>{{ offre.adresse }}</p>
+        <p>{{ offre.prix }}€</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,76 @@
+.favori-item {
+  --ion-background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+}
+
+.favori-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.image-container {
+  position: relative;
+  margin-left: 0;
+  width: 200px;
+  height: 150px;
+  overflow: hidden;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.badge-type {
+  position: absolute;
+  top: -13px;
+  left: 10px;
+  background-color: var(--ion-color-success);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.8em;
+}
+
+.favori-icon {
+  position: absolute;
+  top: -13px;
+  right: 10px;
+  font-size: 1.5em;
+}
+
+ion-card-content {
+  padding: 16px 2px;
+  flex: 1;
+  text-overflow: clip;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+p {
+  margin: 0;
+  color: #666;
+  width: 100%;
+}
+
+
+ion-item.favori-item div .item-native {
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+

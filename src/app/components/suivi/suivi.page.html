@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Suivi de ma demande</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="profile-container">
+    <img src="assets/rihab.png" alt="Avatar" class="avatar" />
+    <h2>Rihad ABDELLI</h2>
+  </div>
+
+  <ion-list>
+    <ion-item class="no-line">
+      <div class="progress-container">
+        <ion-label class="progress-label">Dossier Reçu</ion-label>
+        <ion-note class="progress-note">100%</ion-note>
+        <ion-progress-bar value="1" class="custom-progress green-progress" color="success"></ion-progress-bar>
+      </div>
+    </ion-item>
+
+    <ion-item class="no-line">
+      <div class="progress-container">
+        <ion-label class="progress-label">Dossier en cours</ion-label>
+        <ion-note class="progress-note">0%</ion-note>
+        <ion-progress-bar value="0" class="custom-progress" color="success"></ion-progress-bar>
+      </div>
+    </ion-item>
+
+    <ion-item class="no-line">
+      <div class="progress-container">
+        <ion-label class="progress-label">Décision prise</ion-label>
+        <ion-note class="progress-note">0%</ion-note>
+        <ion-progress-bar value="0" class="custom-progress" color="success"></ion-progress-bar>
+      </div>
+    </ion-item>
+
+    <ion-item class="no-line">
+      <div class="progress-container">
+        <ion-label class="progress-label">Prêt délivré</ion-label>
+        <ion-note class="progress-note">0%</ion-note>
+        <ion-progress-bar value="0" class="custom-progress" color="success"></ion-progress-bar>
+      </div>
+    </ion-item>
+  </ion-list>
+
+  <div class="cancel-button">
+    <ion-button expand="block" color="danger" (click)="annuler()">
+      Annuler
+    </ion-button>
+  </div>
+</ion-content>

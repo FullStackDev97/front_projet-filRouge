@@ -1,0 +1,26 @@
+ion-app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+ion-split-pane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 65px;
+}
+
+ion-router-outlet {
+  flex: 1;
+  overflow: auto;
+}
+
+.footer-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--ion-background-color);
+  z-index: 10;
+  height: 60px;
+}

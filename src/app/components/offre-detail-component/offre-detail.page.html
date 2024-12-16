@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Details</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="offreResponse?.offreImmobilier">
+    <div class="image-container" #swiperContainer>
+      <swiper-container slides-per-view="1" space-between="10" pagination="{ clickable: true }" class="mySwiper">
+        <swiper-slide *ngFor="let image of offreResponse?.offreImmobilier?.imageUrls">
+          <img [src]="image" alt="Image" />
+        </swiper-slide>
+      </swiper-container>
+      <div class="icon-buttons">
+        <ion-icon [name]="isFavori ? 'heart' : 'heart-outline'" class="heart-icon" (click)="toggleFavori()"></ion-icon>
+        <ion-icon name="share-social-outline" class="share-icon" (click)="partagerOffre()"></ion-icon>
+      </div>
+    </div>
+
+    <h2 class="prix">{{ offreResponse?.offreImmobilier?.prix }} €</h2>
+    <p class="address">{{ offreResponse?.offreImmobilier?.adresse }}</p>
+
+    <ion-button fill="clear" (click)="afficherSurLaCarte(offreResponse?.offreImmobilier?.adresse)" class="map-button">
+      <ion-icon class="map-icon" name="location-outline"></ion-icon> Afficher sur la carte
+    </ion-button>
+
+    <div class="details">
+      <ion-icon name="bed-outline" class="icon-grey icon-large"></ion-icon>
+      <span class="span-details">{{ getChambresText(offreResponse?.offreImmobilier?.chambres) }}</span>
+      <ion-icon name="water-outline" class="icon-grey icon-large"></ion-icon>
+      <span class="span-details">{{ getSallesDeBainText(offreResponse?.offreImmobilier?.sallesDeBain) }}</span>
+      <ion-icon name="resize-outline" class="icon-grey icon-large"></ion-icon>
+      <span class="span-details">{{ offreResponse?.offreImmobilier?.surface }} Surfaces</span>
+    </div>
+
+    <div class="nearby">
+      <h3>Près de vous</h3>
+      <ion-row>
+        <ion-col class="ion-col-nearby" size="6" *ngFor="let lieu of lieuxProches">
+          <ion-card>
+            <ion-card-content>
+              <ion-icon [name]="lieu.icon" [ngClass]="{'pharmacy': lieu.type === 'pharmacy', 'hospital': lieu.type === 'hospital', 'metro_station': lieu.type === 'metro_station', 'cart': lieu.type === 'supermarket'}" class="icon-large"></ion-icon>
+              <div class="lieu-details">
+                <h2>{{ lieu.nom }}</h2>
+                <p>{{ lieu.distance }}</p>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </div>
+
+    <div class="overview">
+      <h3>Aperçu</h3>
+      <div><span class="span-apercu">Type de propriété: </span><span class="span-response">{{ getTypeBienText(offreResponse?.offreImmobilier?.typeBien) }}</span></div>
+      <div><span class="span-apercu">Statut de la propriété:</span> <span class="span-response">{{ getStatutProprieteText(offreResponse?.offreImmobilier?.statutPropriete) }}</span></div>
+      <div><span class="span-apercu">Ameublement:</span> <span class="span-response">{{ getAmeublementText(offreResponse?.offreImmobilier?.ameublement) }}</span></div>
+    </div>
+    <ion-button (click)="testerEligibility()" class="btn-test" expand="block">Tester votre éligibilité</ion-button>
+  </div>
+</ion-content>
